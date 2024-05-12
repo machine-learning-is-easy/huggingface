@@ -1,0 +1,7 @@
+"CRF Decoding does not work with KerasTensors in TF2.4. The bug has since been fixed in tensorflow/tensorflow##45534"
+
+
+labels:
+crf need to calculate a kernel, which dimension is (num_labels, num_labels). if we use the massive labels like 30,000.
+this kernel matrix would be 900,000,000 which is super large. an idea is reduce this labels to training tokens.
+training tokens can bes several hundreds.
